@@ -19,5 +19,6 @@
             "taskName": "test",
             "args": ["run", "test"]
         }
-    ]
+    ],
+    "echoCommand": true
 }

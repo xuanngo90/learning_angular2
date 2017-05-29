@@ -9,14 +9,19 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var AppComponent = (function () {
     function AppComponent() {
-        this.name = 'Angular';
+        //import selector
+        this.title = "hello Admin..!";
+        //import attribute
+        this.image = "http://lorempixel.com/480/360";
+        //import example
+        this.imageURL = "http://lorempixel.com/480/360";
     }
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "\n  <h1>Hello {{name}}</h1>\n  <header></header>\n  "
+        template: "\n  <h1>{{title}}</h1>\n  <div>\n    <img [src]=\"image\" />\n    <img src={{imageURL}} />\n  </div>\n  <header></header>\n  \n  "
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;
