@@ -1,8 +1,8 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-    selector:'header',
-    template:`
+    selector: 'header',
+    template: `
     <div class="headerLeft">
         <h1><a href="/" title="Go to Home">Logo</a></h1>
     </div>
@@ -44,25 +44,49 @@ import {Component} from '@angular/core';
     <ul>
         <li *ngFor="let color of colors">{{color}}</li>
     </ul>
+
+    <h3>for lesson 12</h3>
+    <p [ngClass]="{classOne:cone, classTwo:ctwo}">This is ngClass apply Style</p>
+    <button (click)="toggleClass()">Toggle class</button>
+
+    <p [ngStyle]="{'font-style':style,'font-size':size}">This paragaph will be apply to ngStyle</p>
     `,
-    styles: [`
+    styles: [
+        `
         .redColor {
             color: red;
         }
-    `]
+        .classOne {
+            color: white;
+        }
+        .classTwo {
+            background-color: black;
+        }
+        `
+    ]
 })
-export class headerSection{
+export class headerSection {
     public applyClass = false;
 
     public blueColor = false;
 
-    OnClick(value){
-        console.log(value);
-    }
+    // OnClick(value){
+    //     console.log(value);
+    // }
 
     public showLiveIf = true;
 
     public color = "asdas";
 
     public colors: string[] = ["red", "green", "blue"];
+
+    public cone = true;
+    public ctwo = true;
+    toggleClass(){
+        this.cone = !this.cone;
+        this.ctwo = !this.ctwo;
+    }
+
+    public style="italic";
+    public size="30px";
 }

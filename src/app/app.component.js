@@ -11,17 +11,13 @@ var AppComponent = (function () {
     function AppComponent() {
         //import selector
         this.title = "hello Admin..!";
-        //import attribute
-        this.image = "http://lorempixel.com/480/360";
-        //import example
-        this.imageURL = "http://lorempixel.com/480/360";
     }
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "\n  <h1>{{title}}</h1>\n  <div>\n    <img [src]=\"image\" />\n    <img src={{imageURL}} />\n  </div>\n  <header></header>\n  \n  "
+        template: "\n  <h1>{{title}}</h1>\n  <header></header>\n  <input type=\"text\" #textName (keyup)=\"0\" />\n  <my-input [name]=\"textName.value\"></my-input>\n  ",
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;

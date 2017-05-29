@@ -1,26 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+
+//Kết Nối với input.component.ts
+import { inputSection } from './input.component';
 
 @Component({
   selector: 'my-app',
   template: `
   <h1>{{title}}</h1>
-  <div>
-    <img [src]="image" />
-    <img src={{imageURL}} />
-  </div>
   <header></header>
-  
-  `
+  <input type="text" #textName (keyup)="0" />
+  <my-input [name]="textName.value"></my-input>
+  `,
 })
 
 export class AppComponent { 
   //import selector
   public title = "hello Admin..!";
-
-  //import attribute
-  public image = "http://lorempixel.com/480/360";
-
-  //import example
-  public imageURL = "http://lorempixel.com/480/360";
 
 }
