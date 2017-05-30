@@ -12,10 +12,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var inputSection = (function () {
     function inputSection() {
+        this.onVote = new core_1.EventEmitter();
         this.voted = false;
     }
     inputSection.prototype.vote = function (agree) {
         this.voted = true;
+        this.onVote.emit(agree);
     };
     return inputSection;
 }());
@@ -23,10 +25,14 @@ __decorate([
     core_1.Input(),
     __metadata("design:type", String)
 ], inputSection.prototype, "name", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], inputSection.prototype, "onVote", void 0);
 inputSection = __decorate([
     core_1.Component({
-        selector: 'my-input',
-        template: "\n        <h2>{{title}}</h2>\n        <p>Child component: {{name}}</p>\n\n        <button [disabled]=\"voted\" (click)=\"vote(true)\">Agree</button>\n        <button [disabled]=\"voted\" (click)=\"vote(false)\">Disgree</button>\n    "
+        selector: '.my-input',
+        template: "\n        <h2>{{title}}</h2>\n        <p>Child component: {{name}}</p>\n\n        <button [disabled]=\"voted\" (click)=\"vote(true)\">Agree</button>\n        <button [disabled]=\"voted\" (click)=\"vote(false)\">Disgree</button>\n        Result: {{voted}}\n    "
     })
 ], inputSection);
 exports.inputSection = inputSection;

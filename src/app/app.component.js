@@ -11,13 +11,23 @@ var AppComponent = (function () {
     function AppComponent() {
         //import selector
         this.title = "hello Admin..!";
+        this.agree = 0;
+        this.disgree = 0;
+        this.names = ['Mr.A', 'Mr.B', 'Mr.C', 'Mr.D'];
+        // <input type="text" #textName (keyup)="0" /> textName.value
     }
+    AppComponent.prototype.parentVote = function (agree) {
+        if (agree)
+            this.agree++;
+        else
+            this.disgree++;
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "\n  <h1>{{title}}</h1>\n  <header></header>\n  <input type=\"text\" #textName (keyup)=\"0\" />\n  <my-input [name]=\"textName.value\"></my-input>\n  ",
+        template: "\n  <h1>{{title}}</h1>\n  <!--header></header-->\n \n\n  <p>Agree number: {{agree}} - Disgree number: {{disgree}}</p>\n  <div class=\"my-input\" *ngFor=\"let person of names\" [name]=\"person\" (onVote)=\"parentVote($event)\"></div>\n  ",
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;
