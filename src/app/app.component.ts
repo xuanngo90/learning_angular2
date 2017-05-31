@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 
 //Kết Nối với input.component.ts
 import { inputSection } from './input.component';
+import { HeroBirthdayComponent } from './datetime.component';
 
 @Component({
   selector: 'my-app',
@@ -9,9 +10,12 @@ import { inputSection } from './input.component';
   <h1>{{title}}</h1>
   <!--header></header-->
  
+  <button (click)="changeName()">Change Name</button>
 
   <p>Agree number: {{agree}} - Disgree number: {{disgree}}</p>
   <div class="my-input" *ngFor="let person of names" [name]="person" (onVote)="parentVote($event)"></div>
+
+  <div class="hero-birthday"></div>
   `,
 })
 
@@ -21,11 +25,17 @@ export class AppComponent {
 
   public agree:number = 0;
   public disgree:number = 0;
-  public names = ['Mr.A','Mr.B','Mr.C','Mr.D']
+  public names = ['Mr.A','Mr.B','Mr.C','Mr.D'];
+
+  @ViewChild(inputSection)
+  private InputSection : inputSection;
+
   parentVote(agree:boolean){
     if(agree) this.agree++;
     else this.disgree++;
   }
   // <input type="text" #textName (keyup)="0" /> textName.value
-
+  changeName(){
+    this.InputSection.setName('Change name in Parent');
+  } 
 }

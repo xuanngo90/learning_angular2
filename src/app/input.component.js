@@ -15,6 +15,9 @@ var inputSection = (function () {
         this.onVote = new core_1.EventEmitter();
         this.voted = false;
     }
+    inputSection.prototype.setName = function (name) {
+        this.name = name;
+    };
     inputSection.prototype.vote = function (agree) {
         this.voted = true;
         this.onVote.emit(agree);

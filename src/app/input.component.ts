@@ -12,13 +12,18 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     `
 })
 export class inputSection {
-     @Input() name: string;
+    @Input() name: string;
 
-     @Output() onVote = new EventEmitter<boolean>();
+    @Output() onVote = new EventEmitter<boolean>();
 
-     public voted:boolean = false;
-     vote(agree:boolean){
-         this.voted = true;
-         this.onVote.emit(agree);
-     }
+    public voted:boolean = false;
+
+	setName(name:string) {
+		this.name = name;
+	}
+
+    vote(agree:boolean){
+        this.voted = true;
+        this.onVote.emit(agree);
+    }
 }
