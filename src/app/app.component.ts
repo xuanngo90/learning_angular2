@@ -2,13 +2,14 @@ import { Component, ViewChild } from '@angular/core';
 
 //Kết Nối với input.component.ts
 import { inputSection } from './input.component';
+//Kết Nối với datetime.component.ts
 import { HeroBirthdayComponent } from './datetime.component';
 
 @Component({
   selector: 'my-app',
   template: `
   <h1>{{title}}</h1>
-  <!--header></header-->
+  <header></header>
  
   <button (click)="changeName()">Change Name</button>
 

@@ -39,7 +39,7 @@ __decorate([
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "\n  <h1>{{title}}</h1>\n  <!--header></header-->\n \n  <button (click)=\"changeName()\">Change Name</button>\n\n  <p>Agree number: {{agree}} - Disgree number: {{disgree}}</p>\n  <div class=\"my-input\" *ngFor=\"let person of names\" [name]=\"person\" (onVote)=\"parentVote($event)\"></div>\n\n  <div class=\"hero-birthday\"></div>\n  ",
+        template: "\n  <h1>{{title}}</h1>\n  <header></header>\n \n  <button (click)=\"changeName()\">Change Name</button>\n\n  <p>Agree number: {{agree}} - Disgree number: {{disgree}}</p>\n  <div class=\"my-input\" *ngFor=\"let person of names\" [name]=\"person\" (onVote)=\"parentVote($event)\"></div>\n\n  <div class=\"hero-birthday\"></div>\n  ",
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;
